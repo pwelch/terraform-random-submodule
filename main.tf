@@ -9,3 +9,12 @@ resource "random_id" "random" {
 output "random" {
   value = random_id.random.hex
 }
+
+module "random" {
+  source = "./modules"
+  string_length = 10
+}
+
+output "module-random" {
+  value = module.random.random_string
+}
